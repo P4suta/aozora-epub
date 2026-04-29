@@ -1,0 +1,48 @@
+aozora-epub — EPUB3 generator for Aozora Bunko notation
+Copyright (c) the aozora-epub contributors
+
+This NOTICE file is a convenience index of third-party material incorporated
+into the aozora-epub source repository. It does not replace the
+individual license files and source-level attributions; those remain the
+authoritative record. Unless specified otherwise in one of the sections
+below, everything else in this repository is original aozora-epub code
+and is dual-licensed under Apache-2.0 OR MIT (see LICENSE-APACHE and
+LICENSE-MIT).
+
+
+================================================================================
+1. Sibling project: aozora (Apache-2.0 OR MIT)
+================================================================================
+
+aozora-epub depends on the `aozora` library crates consumed via git tag
+dep, to convert aozora `.txt` sources into the XHTML fragments that
+EPUB3 spine items embed. aozora is dual-licensed Apache-2.0 OR MIT;
+see https://github.com/P4suta/aozora/blob/main/NOTICE for the
+third-party attributions.
+
+
+================================================================================
+2. Prior art: AozoraEpub3 family (acknowledgement)
+================================================================================
+
+There is an established ecosystem of aozora→EPUB3 converters which this
+project does **not** replace:
+
+- [hmdev/AozoraEpub3](https://github.com/hmdev/AozoraEpub3) — the
+  original Java converter, the de-facto standard.
+- [whiteleaf7/AozoraEpub3](https://github.com/whiteleaf7/AozoraEpub3)
+  — fork.
+- [Improved AozoraEpub3 (kyukyunyorituryo / 急急如律令)](https://kyukyunyorituryo.github.io/aozoraepub/)
+  — fork targeting 電書協 EPUB3 制作ガイド compliance + Android port.
+
+aozora-epub is parked until a clear differentiating need emerges
+(see ADR-0001). Until then, AozoraEpub3 family tools are the
+recommended choice for users converting aozora `.txt` to EPUB3.
+
+
+================================================================================
+3. aozora-epub (Apache-2.0 OR MIT)
+================================================================================
+
+All original aozora-epub source code is dual-licensed under Apache-2.0
+OR MIT at the user's option.

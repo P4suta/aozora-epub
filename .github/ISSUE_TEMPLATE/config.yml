@@ -1,0 +1,17 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Have you tried AozoraEpub3 first?
+    url: https://github.com/hmdev/AozoraEpub3
+    about: aozora-epub is parked per ADR-0001. The de-facto-standard converter is hmdev/AozoraEpub3 — please try it before filing here.
+  - name: AozoraEpub3 (whiteleaf7 fork)
+    url: https://github.com/whiteleaf7/AozoraEpub3
+    about: Active fork of the original. Try this before filing.
+  - name: Improved AozoraEpub3 (kyukyunyorituryo / 急急如律令)
+    url: https://kyukyunyorituryo.github.io/aozoraepub/
+    about: Fork targeting 電書協 EPUB3 制作ガイド compliance + Android port. Try this before filing.
+  - name: aozora parser issue
+    url: https://github.com/P4suta/aozora/issues/new/choose
+    about: Parser bug, AST regression, gaiji resolution, encoding — file against the sibling aozora repo.
+  - name: Aozora Bunko notation reference
+    url: https://www.aozora.gr.jp/annotation/
+    about: Official 青空文庫 annotation spec — consult before reporting a notation-handling issue.

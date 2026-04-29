@@ -1,0 +1,34 @@
+# Rust
+/target
+/crates/*/target
+**/*.rs.bk
+
+# Cargo
+# This workspace ships a library crate (aozora-epub). Per Cargo's
+# guidance for library crates, we do NOT commit Cargo.lock — downstream
+# consumers should resolve their own deps. Revisit if/when a binary
+# crate (CLI) lands as part of unparking.
+Cargo.lock
+Cargo.lock.bak
+/.cargo/
+
+# EPUB build artefacts
+/out/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/*
+
+# Local env overrides
+.env
+.env.local
+
+# Ad-hoc scratch files
+.tmp-*
+
+# macOS junk in WSL mounts
+:2e*

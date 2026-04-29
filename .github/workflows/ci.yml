@@ -1,0 +1,77 @@
+# CI for aozora-epub.
+#
+# The repo is parked per ADR-0001 and has no real code yet. The gate
+# below still runs on every PR so that the moment the project is
+# unparked the very first line of real code is held to the same
+# strictness as every other crate in the aozora family. Drift-free by
+# construction.
+#
+# Strictness mirrors aozora-tools' ci.yml (post-PR-#9):
+#   - cargo fmt --check
+#   - cargo clippy --workspace --all-targets --all-features -- -D warnings
+#   - cargo test --workspace --all-targets
+#   - cargo doc --workspace --no-deps  (with RUSTDOCFLAGS=-D warnings)
+#   - typos (crate-ci/typos)
+
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  CARGO_TERM_COLOR: always
+  RUST_BACKTRACE: 1
+  CARGO_INCREMENTAL: 0
+  CARGO_NET_RETRY: 10
+  RUSTFLAGS: -D warnings
+  RUSTDOCFLAGS: -D warnings
+
+jobs:
+  rust:
+    name: rust (fmt + clippy + test + doc)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: 1.95.0
+          components: rustfmt, clippy
+
+      - name: Cache cargo target / registry
+        uses: Swatinem/rust-cache@v2
+        with:
+          shared-key: aozora-epub-ci
+          # Save cache only on main pushes — PR runs only restore.
+          save-if: ${{ github.ref == 'refs/heads/main' }}
+
+      - name: fmt --check
+        run: cargo fmt --all -- --check
+
+      - name: clippy
+        run: cargo clippy --workspace --all-targets --all-features -- -D warnings
+
+      - name: test
+        run: cargo test --workspace --all-targets
+
+      - name: doc test
+        run: cargo test --doc --workspace
+
+      - name: doc (deny broken intra-doc links)
+        run: cargo doc --workspace --no-deps --document-private-items
+
+  typos:
+    name: typos
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: crate-ci/typos@v1

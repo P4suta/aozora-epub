@@ -1,0 +1,71 @@
+name: Bug report
+description: Report a bug in aozora-epub. PLEASE READ THE PARKING NOTICE FIRST.
+title: "[bug] "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## ⚠️ aozora-epub is parked
+
+        This project is **parked** per
+        [ADR-0001](https://github.com/P4suta/aozora-epub/blob/main/docs/adr/0001-parked-until-differentiation.md).
+        There is no real implementation here yet — the repo only
+        contains a workspace scaffold so that future work can begin
+        without re-bootstrapping.
+
+        **The aozora→EPUB3 conversion space is already covered by three
+        mature alternatives.** Before filing a bug here, please
+        confirm you have tried at least one of them and that the bug
+        is somehow specific to aozora-epub (which currently has no
+        functionality, so this would be unusual).
+
+  - type: checkboxes
+    id: prior-art
+    attributes:
+      label: Have you tried the existing tools first?
+      description: aozora-epub is parked because these tools already cover the space well. If your bug is "I want to convert aozora .txt to EPUB3", please use one of these instead — they will serve you better than this parked scaffold.
+      options:
+        - label: I have tried [hmdev/AozoraEpub3](https://github.com/hmdev/AozoraEpub3) (the de-facto standard).
+          required: true
+        - label: I have tried [whiteleaf7/AozoraEpub3](https://github.com/whiteleaf7/AozoraEpub3) (active fork).
+          required: false
+        - label: I have tried [kyukyunyorituryo's Improved AozoraEpub3](https://kyukyunyorituryo.github.io/aozoraepub/) (電書協 EPUB3 制作ガイド-compliant fork, Android port available).
+          required: false
+
+  - type: textarea
+    id: why-here
+    attributes:
+      label: Why is this an aozora-epub bug specifically?
+      description: Given the parked status, please explain what makes this a bug in *this* repo rather than something that should be reported to the existing converters or the [`aozora` parser](https://github.com/P4suta/aozora).
+      placeholder: |
+        e.g. "The CHANGELOG references vX.Y.Z but the tag doesn't exist"
+        e.g. "The README licence claim is inaccurate"
+        e.g. "ADR-0001 has a broken link"
+    validations:
+      required: true
+
+  - type: textarea
+    id: input
+    attributes:
+      label: Reproduction
+      description: |
+        If applicable, the shortest steps to reproduce the issue.
+      render: text
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behaviour
+      description: Include any stack trace, panic message, or screenshot.
+
+  - type: input
+    id: version
+    attributes:
+      label: aozora-epub version / commit
+      placeholder: commit abcd1234

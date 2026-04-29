@@ -1,0 +1,62 @@
+name: Feature request
+description: Propose a feature for aozora-epub. PLEASE READ THE PARKING NOTICE FIRST.
+title: "[feature] "
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## ⚠️ aozora-epub is parked
+
+        This project is **parked** per
+        [ADR-0001](https://github.com/P4suta/aozora-epub/blob/main/docs/adr/0001-parked-until-differentiation.md).
+        Feature requests for "aozora→EPUB3 conversion" generically
+        belong on the existing converters, not here:
+
+        - [hmdev/AozoraEpub3](https://github.com/hmdev/AozoraEpub3)
+        - [whiteleaf7/AozoraEpub3](https://github.com/whiteleaf7/AozoraEpub3)
+        - [Improved AozoraEpub3 (kyukyunyorituryo)](https://kyukyunyorituryo.github.io/aozoraepub/)
+
+        A feature request makes sense **here** only if it's about
+        *unparking* — i.e. you have a concrete activation criterion
+        that ADR-0001 lists or could be added to ADR-0001:
+
+        1. A specific incident where AozoraEpub3 fell short.
+        2. A differentiation axis becoming a real priority (most
+           likely `miette`-grade diagnostics + 17 k corpus sweep).
+        3. A downstream sibling repo needing aozora→EPUB3 as an
+           embeddable library.
+
+  - type: textarea
+    id: activation-criterion
+    attributes:
+      label: Which activation criterion does this match?
+      description: Reference one of the three above, or propose a new one. Vague "would be nice" requests will be closed and redirected to the existing tools.
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: What concrete use case fails today with the existing converters? Why does that gap warrant unparking aozora-epub rather than upstreaming the fix?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed shape
+      description: |
+        Library API, CLI surface, EPUB-spec compliance check, etc.
+        For diagnostic features: include the input ↔ expected diagnostic pair.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Why not patch hmdev / whiteleaf7 / kyukyunyorituryo instead?
+    validations:
+      required: true

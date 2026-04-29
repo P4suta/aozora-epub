@@ -1,0 +1,21 @@
+[package]
+name          = "aozora-epub"
+version       = { workspace = true }
+edition       = { workspace = true }
+rust-version  = { workspace = true }
+license       = { workspace = true }
+description   = "EPUB3 generator for Aozora Bunko notation (parked — see ADR-0001)"
+repository    = { workspace = true }
+homepage      = { workspace = true }
+authors       = { workspace = true }
+readme        = "../../README.md"
+keywords      = { workspace = true }
+categories    = { workspace = true }
+publish       = false
+
+[lints]
+workspace = true
+
+[dependencies]
+# Intentionally empty until the parked repo activates. ADR-0001
+# explains the activation criteria.
